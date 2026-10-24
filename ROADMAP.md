@@ -19,9 +19,9 @@ this is a **proposed backlog**, not a list of finished features. sprint ids desc
 
 | id | epic | shared foundation sprints | character delivery |
 |---|---|---|---|
-| e01 | mind & memory | f01 model pipeline; f02 obsidian hive mind | c01–c16 |
-| e02 | embodiment | f03 locomotion/gaze; f04 ik/expression | c01–c16 |
-| e03 | voice & listening | f05 speech pipeline | c01–c16 |
+| e01 | mind & memory | f01 model pipeline; f02 obsidian hive mind | c01–c14 |
+| e02 | embodiment | f03 locomotion/gaze; f04 ik/expression | c01–c14 |
+| e03 | voice & listening | f05 speech pipeline | c01–c14 |
 | e04 | character vertical slices | shared character contract below | one sprint per character |
 | e05 | daily-life workflows | f06 routines and approved tools | c01–c10 |
 | e06 | trust & delivery | f07 safety and public release | every sprint |
@@ -255,29 +255,13 @@ revalidate the earlier non-vrm guest path, walking/resting, and conversation. do
 
 **acceptance:** locomotion and dialogue work in a demonstrated slice; unsupported vrm-only features fail gracefully; rights are recorded.
 
-### c15 — bmo: imported-character onboarding
-
-**epics:** e02, e04, e06. **duty:** not yet defined; the model is an import, not a finished assistant.
-
-inspect the glb rig, animation support, materials, and expressive capabilities; define a role with the user before adding behavior.
-
-**acceptance:** rights/provenance checked, a stable visible import, a documented rig plan, and an approved duty. no claim of completed conversation capability from import alone.
-
-### c16 — niko: imported-character onboarding
-
-**epics:** e02, e04, e06. **duty:** not yet defined; the model is an import, not a finished assistant.
-
-inspect the fbx rig, textures, expressions, and locomotion compatibility; define role and voice separately from the source character's intellectual property.
-
-**acceptance:** rights/provenance checked, a stable visible import, a documented rig plan, and an approved duty.
-
 ## suggested execution order
 
 1. f07 establishes the privacy and regression gates for every subsequent sprint.
 2. f01–f02 establish model identity and memory continuity.
 3. f03–f05 establish common embodiment and speech; f06 supplies routine context.
 4. c01 p.a. and c02 chef validate the shared character contract.
-5. apply that contract incrementally to c03–c10, then c11–c16 where rig compatibility and rights permit.
+5. apply that contract incrementally to c03–c10, then c11–c14 where rig compatibility and rights permit.
 6. publish only verified, reviewed slices with non-sensitive demonstrations.
 
 no character sprint is marked complete here. completion requires its shared contract and role-specific acceptance test, not merely imported assets or working source compilation.

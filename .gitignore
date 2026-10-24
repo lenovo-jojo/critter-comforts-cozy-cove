@@ -48,3 +48,15 @@ node_modules/
 dist/
 __pycache__/
 .pytest_cache/
+
+# Third-party fan assets are imported locally, never committed
+project/Assets/Environments/PossumSprings/Models/
+project/Assets/Environments/PossumSprings/Models.meta
+project/Assets/Environments/PossumSprings/Textures/
+project/Assets/Environments/PossumSprings/Textures.meta
+project/Assets/Environments/PossumSprings/Materials/
+project/Assets/Environments/PossumSprings/Materials.meta
+project/Assets/Environments/PossumSprings/Prefabs/
+project/Assets/Environments/PossumSprings/Prefabs.meta
+project/Assets/StreamingAssets/Characters/Mae/*.glb
+project/Assets/StreamingAssets/Characters/Mae/*.glb.meta

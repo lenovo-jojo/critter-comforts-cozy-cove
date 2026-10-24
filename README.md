@@ -2,82 +2,39 @@
 
 > i just want a pet robot lowkey.
 
-a cozy, local-first jarvis project: characters with a home inside the computer, a window into your world, and different ways to help you keep the thread. part virtual companion, part daily-life assistant, part dollhouse operating system.
+a cozy, local-first companion world in unity: characters who live inside your computer, talk with you through a local ai model, and (eventually) help you keep track of daily life.
 
-<img width="882" height="560" alt="Screenshot 2026-10-14 at 3 40 26 PM" src="https://github.com/user-attachments/assets/21c1c6fd-7aea-4d25-a9bd-d9173eb94378" />
+<img width="882" height="560" alt="cozy cove: a vrm companion character standing in the unity scene with a speech bubble" src="https://github.com/user-attachments/assets/21c1c6fd-7aea-4d25-a9bd-d9173eb94378" />
 
-built in **unity/c#**, with vrm avatars and a roadmap spanning locomotion, eye tracking, ik animation, tts, stt, voice cloning, and an obsidian-backed character hive mind using **ollama, qwen, and hermes**. developed with ai assistance.
+## works today
 
-## the cast
+- **local ai chat:** talks to any openai-compatible endpoint (for example ollama) with per-companion memory.
+- **vrm characters:** import your own avatar, click to select, drag to place, cycle through 18 built-in poses.
+- **speech:** world-space speech bubbles that follow the character's head, animalese-style voice or optional tts, and microphone input with device recovery.
+- **camera:** full-body, conversational, and tv-style framing.
 
-these are the characters' intended responsibilities, not claims that every listed workflow is complete.
+the unity project compiles and passes a batch-mode pose-loading check (`project/Assets/Editor/PortfolioVerification.cs`). the browser and dialogue prototypes in `project/examples` are built and tested in github actions.
 
-| character | their job | dedicated sprint |
-|---|---|---|
-| **p.a.** | personal assistant and companion. hold unresolved threads, help with to-dos and check-ins, follow up on plans, and support morning startup and wind-down routines. | c01 — continuity |
-| **chef** | make eating easier: meal ideas, pantry context, groceries, cooking steps, and useful follow-ups about food. | c02 — food |
-| **coach** | help turn movement intentions into manageable exercise, stretching, recovery, and habit check-ins. | c03 — movement |
-| **librarian** | organize television, reading, and remembered ideas; retrieve useful context with source links. | c04 — entertainment |
-| **nurse** | support user-entered care routines, hydration, reminders, and wellness logs—not diagnosis or medical authority. | c05 — care |
-| **banker** | help understand budgets, expenses, and savings goals through read-only summaries—not autonomous financial transactions. | c06 — money |
-| **secretary** | organize appointments, calendar context, priorities, and administrative loose ends. scene identifier: mayorsecretary. | c07 — planning |
-| **popular girl / gossip** | help with social plans, conversation preparation, relationships, and remembering things the user chose to share. | c08 — social life |
-| **therapist** | offer reflection, emotional check-ins, and small grounding steps—not a replacement for professional care. | c09 — reflection |
-| **tinkerer** | help with projects, troubleshooting, creative experiments, and making the next build step concrete. | c10 — making |
+## run it
 
-jojo/stella, charmy, spike, and mae belong to earlier avatar/companion iterations. bmo and niko are newer asset imports, not completed companions. each has its own onboarding sprint in the [roadmap](ROADMAP.md); their future duties and redistribution rights must be settled before publication.
+1. open `project/` in unity hub with **unity 6000.5.4f1** and let package manager restore dependencies.
+2. open [`SampleScene`](project/Assets/Scenes/SampleScene.unity) and press play.
+3. import a vrm you have rights to, and point chat at your local model endpoint.
 
-## one crew, individual characters
+[setup and controls](project/docs/setup-and-controls.md) lists every control and default setting. the possum springs scene needs a fan-made environment you download yourself; see [its attribution note](project/Assets/Environments/PossumSprings/ATTRIBUTION.md).
 
-the hive-mind design shares relevant plans, routines, and world context **without flattening everyone into the same personality**.
+## where it's going
 
-- **obsidian:** editable markdown souls, shared crew context, and user-controlled memory.
-- **character identity:** separate voice, role, memories, and conversational behavior.
-- **ollama:** local model serving, with explicit model selection and endpoint health checks.
-- **hermes:** agent and tool orchestration, kept separate from ordinary dialogue generation; consequential tool actions require scoped permission.
-- **local model pipeline:** private configuration currently uses the alias `qwen3.8-hermes:latest`, referred to here as the qwen 3.8 profile. the model sprint verifies its actual weights, provider, and capabilities; this repository does not bundle model weights.
-- **grounded initiative:** follow up on real conversation, remembered plans, actual time, known scene state, or tool results.
-- **continuity:** after an absence, ask what happened rather than assuming an old task is still pending.
+the plan is a small crew of characters, each with its own job (an assistant, a chef, a coach, a librarian, and more) and its own voice and memory, sharing context through an obsidian vault. the [roadmap](ROADMAP.md) breaks this into epics and sprints with acceptance criteria. none of the crew roles are built yet.
 
-the full obsidian, ollama/qwen, and hermes integration is private-development work and a public-port target—not a bundled, verified end-to-end feature of this public snapshot. the public chat core can connect to a configured local openai-compatible endpoint.
+## earlier versions
 
-## engineering epics
+the same idea in other forms:
 
-| epic | what it brings together |
-|---|---|
-| e01 — mind & memory | ollama/qwen inference, hermes orchestration, obsidian, individual souls, shared context, retrieval, and grounded initiative. |
-| e02 — embodiment | locomotion, eye tracking, blinking, expressions, living motion, ik, poses, perches, outfits, and camera framing. |
-| e03 — voice & listening | tts, stt, voice cloning, lip sync, audio-device recovery, and natural multi-message cadence. |
-| e04 — character vertical slices | one dedicated sprint per character, built on common systems while preserving identity and duties. |
-| e05 — daily-life workflows | routines, food, care, planning, projects, and user-approved integrations. |
-| e06 — trust & delivery | privacy, permissions, asset rights, regression tests, demonstrations, and honest public documentation. |
-
-the [sprint backlog](ROADMAP.md) breaks these epics into small deliverables with acceptance criteria. sprint labels are work packages, not dated commitments or completed milestones.
-
-## what is public today?
-
-this is a curated **source edition**, not the latest private environment.
-
-the public baseline contains local ai integration, companion memory, vrm interaction, poses and camera controls, animalese/optional tts, and world-space dialogue. the latest selective port adds microphone pre-roll and lifecycle/device handling, transcript filtering, and head-following, camera-relative speech bubbles.
-
-the larger character, obsidian, qwen, voice-cloning, and animation roadmap is being ported incrementally. personal avatars, recordings, conversation logs, workbook data, credentials, private history, and restricted assets are excluded. import your own vrm and configure your own services.
-
-## run and verify
-
-[setup and controls](project/docs/setup-and-controls.md) covers the downloadable public edition and explains how it differs from current development.
-
-1. open the `project/` folder in unity hub with **unity 6000.5.4f1** and allow package manager to restore dependencies.
-2. open a scene under [assets/scenes](project/Assets/Scenes) and enter play mode.
-3. import your vrm and configure the chat, stt, and voice services you use. local endpoints run separately.
-
-the latest code port compiled in an isolated unity batch run and passed core pose discovery: **18 poses without private content**. public runtime microphone quality and visible bubble layout still need verification. transcript filtering is heuristic and may reject legitimate short utterances. compilation is not proof that every roadmap feature works.
-
-## earlier iterations
-
-- [unity/c# companion systems](project/Assets/Scripts)
 - [three.js/typescript browser world](project/examples/browser-world)
-- [gamecube dialogue prototype](project/examples/gamecube-dialogue)
+- [gamecube dialogue prototype](project/examples/gamecube-dialogue): model-generated dialogue injected into animal crossing running in dolphin
+- [how the project evolved](https://github.com/lenovo-jojo/portfolio/blob/main/case-studies/companion-evolution.md)
 
-[project evolution case study](https://github.com/lenovo-jojo/portfolio/blob/main/case-studies/companion-evolution.md) · [portfolio and delivery evidence](https://github.com/lenovo-jojo/portfolio)
+## notes
 
-an actively developed prototype, with the goal of making useful companionship feel at home.
+built with ai assistance; i direct the design, characters, and behavior. personal avatars, recordings, logs, and credentials are not in this repository. © jojo, all rights reserved except third-party components; see [license](LICENSE).
